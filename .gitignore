@@ -1,0 +1,4 @@
+# MCP Registry publishing: signing key and login tokens must never be committed
+key.pem
+*.pem
+.mcpregistry_*

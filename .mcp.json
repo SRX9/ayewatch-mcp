@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ayewatch": {
+      "type": "http",
+      "url": "https://ayewatch.ai/api/mcp"
+    }
+  }
+}

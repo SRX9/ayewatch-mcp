@@ -1,0 +1,15 @@
+{
+  "name": "ayewatch",
+  "displayName": "AyeWatch",
+  "description": "Create and manage AyeWatch monitors for topics and web pages.",
+  "version": "1.0.0",
+  "author": {
+    "name": "AyeWatch",
+    "url": "https://ayewatch.ai"
+  },
+  "homepage": "https://ayewatch.ai/documentation/mcp",
+  "repository": "https://github.com/SRX9/ayewatch-mcp",
+  "license": "MIT",
+  "keywords": ["monitoring", "alerts", "web page changes", "news", "research"],
+  "logo": "assets/logo.png"
+}

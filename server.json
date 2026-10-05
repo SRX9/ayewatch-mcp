@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ai.ayewatch/ayewatch",
+  "title": "AyeWatch",
+  "description": "Create, list, update, pause and delete AyeWatch monitors for topics and web pages.",
+  "version": "1.0.0",
+  "websiteUrl": "https://ayewatch.ai/documentation/mcp",
+  "repository": {
+    "url": "https://github.com/SRX9/ayewatch-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://ayewatch.ai/api/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional AyeWatch API key as \"Bearer aw_live_...\". Leave empty to sign in with OAuth.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
