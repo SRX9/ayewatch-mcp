@@ -15,7 +15,7 @@ Connect an AI assistant to [AyeWatch](https://ayewatch.ai), which monitors topic
 | `create_topic` | Create a monitor from a topic, one or more web page URLs, or a template |
 | `update_topic` | Change a monitor's fields, including pausing or resuming it |
 | `delete_topic` | Permanently delete a monitor and its schedule |
-| `get_webhook` | Get your webhook URL, whether delivery is on, and its signing secret |
+| `get_webhook` | Get your webhook URL and whether delivery is on |
 | `set_webhook` | Create your webhook, change its URL, or pause and resume delivery |
 | `rotate_webhook_secret` | Replace the webhook signing secret |
 
@@ -26,13 +26,13 @@ Example prompts:
 - "List my AyeWatch monitors and tell me which are paused."
 - "Create a daily AyeWatch monitor for news about solid-state batteries."
 - "Pause my AyeWatch monitor about the iPhone launch."
-- "Send my AyeWatch alerts to https://example.com/hooks/ayewatch and put the signing secret in my .env."
+- "Send my AyeWatch alerts to https://example.com/hooks/ayewatch."
 
 ## Alerts and webhooks
 
 Alerts don't come back through MCP. They arrive through your AyeWatch notifications or a webhook. When a monitor detects new content, AyeWatch sends a `POST` with a JSON body (topic ID, headline, and the update) to an HTTPS endpoint that you run.
 
-Set that endpoint with the `set_webhook` tool, the REST API (`PUT https://ayewatch.ai/api/v1/webhook`), or [Notification settings](https://ayewatch.ai/settings/webhooks). The response includes the secret AyeWatch uses to sign each delivery in the `X-AyeWatch-Signature` header. Anyone holding one of your API keys can read that secret, so if a key leaks, revoke the key and rotate the secret with `rotate_webhook_secret`. The payload fields, timeout, and retry behavior are in the [webhooks documentation](https://ayewatch.ai/documentation/webhooks). The URL is yours, not AyeWatch's, so it is not part of the MCP connection files.
+Set that endpoint with the `set_webhook` tool, the REST API (`PUT https://ayewatch.ai/api/v1/webhook`), or [Notification settings](https://ayewatch.ai/settings/webhooks). AyeWatch signs each delivery with a secret, sent in the `X-AyeWatch-Signature` header. The MCP tools never return that secret, so it stays out of AI conversations; read it in [Notification settings](https://ayewatch.ai/settings/webhooks) or with `GET https://ayewatch.ai/api/v1/webhook`. AyeWatch also emails you whenever the webhook URL is set or changed. If you didn't make a change, revoke your API keys and rotate the secret. The payload fields, timeout, and retry behavior are in the [webhooks documentation](https://ayewatch.ai/documentation/webhooks). The URL is yours, not AyeWatch's, so it is not part of the MCP connection files.
 
 ## Requirements
 
