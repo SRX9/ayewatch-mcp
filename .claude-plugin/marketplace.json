@@ -1,0 +1,8 @@
+{
+  "name": "ayewatch",
+  "owner": { "name": "AyeWatch", "url": "https://ayewatch.ai" },
+  "description": "The AyeWatch plugin for creating and managing monitors from Claude Code.",
+  "plugins": [
+    { "name": "ayewatch", "source": "./" }
+  ]
+}

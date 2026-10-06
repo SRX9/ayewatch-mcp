@@ -44,6 +44,15 @@ Set that endpoint with the `set_webhook` tool, the REST API (`PUT https://ayewat
 
 ### Claude Code
 
+Install the plugin from this repository. Claude Code asks for your API key when you enable the plugin and keeps it in your system's secure credential store.
+
+```bash
+claude plugin marketplace add SRX9/ayewatch-mcp
+claude plugin install ayewatch@ayewatch
+```
+
+Or add the server without the plugin:
+
 ```bash
 claude mcp add --transport http ayewatch https://ayewatch.ai/api/mcp \
   --header "Authorization: Bearer aw_live_YOUR_API_KEY"
@@ -100,11 +109,12 @@ To end an app's access, open [Connected apps](https://ayewatch.ai/settings/conne
 | Path | Purpose |
 | --- | --- |
 | `server.json` | Entry for the official [MCP Registry](https://registry.modelcontextprotocol.io) |
-| `.claude-plugin/plugin.json`, `.mcp.json` | Claude plugin that points at the hosted server |
-| `.cursor-plugin/plugin.json`, `mcp.json` | Cursor plugin that points at the hosted server |
+| `.claude-plugin/plugin.json`, `.mcp.json` | Claude Code plugin that connects to the hosted server with your API key |
+| `.claude-plugin/marketplace.json` | Lets Claude Code install the plugin from this repository |
+| `.cursor-plugin/plugin.json`, `mcp.json` | Cursor plugin manifest. Cursor plugins can't ask each user for an API key yet, so connect Cursor with the configuration above |
 | `assets/` | Icon and logo |
 
-Nothing in this repository runs code on your machine. The plugin files only tell your client to connect to `https://ayewatch.ai/api/mcp`.
+Nothing in this repository runs code on your machine. The plugin files only tell your client to connect to `https://ayewatch.ai/api/mcp` and send your API key to it in the `Authorization` header. AyeWatch receives the tool calls your assistant makes, such as a monitor's topic, URLs, and schedule, and nothing else from your machine.
 
 ## Support and policies
 

@@ -10,5 +10,19 @@
   "homepage": "https://ayewatch.ai/documentation/mcp",
   "repository": "https://github.com/SRX9/ayewatch-mcp",
   "license": "MIT",
-  "keywords": ["monitoring", "alerts", "web page changes", "news", "research"]
+  "keywords": ["monitoring", "alerts", "web page changes", "news", "research"],
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://ayewatch.ai/documentation/mcp",
+  "supportUrl": "https://ayewatch.ai/contact",
+  "privacyPolicyUrl": "https://ayewatch.ai/privacy",
+  "termsOfServiceUrl": "https://ayewatch.ai/terms",
+  "userConfig": {
+    "api_key": {
+      "type": "string",
+      "title": "AyeWatch API key",
+      "description": "Create one in AyeWatch under Settings > API access (https://ayewatch.ai/settings/api). It starts with aw_live_.",
+      "required": true,
+      "sensitive": true
+    }
+  }
 }
