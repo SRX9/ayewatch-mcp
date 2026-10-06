@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "ai.ayewatch/ayewatch",
   "title": "AyeWatch",
-  "description": "Create, list, update, pause and delete AyeWatch monitors for topics and web pages.",
+  "description": "Manage AyeWatch monitors for topics and web pages, and the webhook that receives their alerts.",
   "version": "1.0.0",
   "websiteUrl": "https://ayewatch.ai/documentation/mcp",
   "repository": {
@@ -16,7 +16,7 @@
       "headers": [
         {
           "name": "Authorization",
-          "description": "Optional AyeWatch API key as \"Bearer aw_live_...\". Leave empty to sign in with OAuth.",
+          "description": "AyeWatch API key as \"Bearer aw_live_...\". Required for the webhook tools. Leave empty to sign in with OAuth.",
           "isRequired": false,
           "isSecret": true
         }
