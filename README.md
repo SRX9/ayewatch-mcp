@@ -16,13 +16,19 @@ Connect an AI assistant to [AyeWatch](https://ayewatch.ai), which monitors topic
 | `update_topic` | Change a monitor's fields, including pausing or resuming it |
 | `delete_topic` | Permanently delete a monitor and its schedule |
 
-The tools manage monitors in your own account. They do not return alert history; alerts keep arriving through the notifications and webhooks you already set up in AyeWatch.
+The tools manage monitors in your own account. They do not return alert history.
 
 Example prompts:
 
 - "List my AyeWatch monitors and tell me which are paused."
 - "Create a daily AyeWatch monitor for news about solid-state batteries."
 - "Pause my AyeWatch monitor about the iPhone launch."
+
+## Alerts and webhooks
+
+MCP is for managing monitors. Alerts arrive separately, through your AyeWatch notifications or a webhook. When a monitor detects new content, AyeWatch sends a `POST` with a JSON body (topic ID, headline, and the update) to an HTTPS endpoint that you run.
+
+You set that endpoint in [Notification settings](https://ayewatch.ai/settings/webhooks). The payload fields, timeout, and retry behavior are in the [webhooks documentation](https://ayewatch.ai/documentation/webhooks). The URL is yours, not AyeWatch's, so it is not part of the MCP connection files.
 
 ## Requirements
 
