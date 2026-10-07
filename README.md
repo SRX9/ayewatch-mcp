@@ -60,7 +60,7 @@ claude mcp add --transport http ayewatch https://ayewatch.ai/api/mcp \
 
 ### Cursor
 
-Add this to your MCP configuration (`~/.cursor/mcp.json`):
+If you install the AyeWatch plugin from the Cursor Marketplace, set `AYEWATCH_API_KEY` when Cursor asks for the plugin's configuration. Otherwise, add this to your MCP configuration (`~/.cursor/mcp.json`):
 
 ```json
 {
@@ -92,6 +92,16 @@ Add this to `.vscode/mcp.json`. VS Code asks for the key when the server starts 
 }
 ```
 
+### Codex
+
+Add this to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.ayewatch]
+url = "https://ayewatch.ai/api/mcp"
+http_headers = { "Authorization" = "Bearer aw_live_YOUR_API_KEY" }
+```
+
 ### Any other MCP client
 
 Use the endpoint above with the Streamable HTTP transport and send `Authorization: Bearer aw_live_YOUR_API_KEY` on every request.
@@ -111,7 +121,9 @@ To end an app's access, open [Connected apps](https://ayewatch.ai/settings/conne
 | `server.json` | Entry for the official [MCP Registry](https://registry.modelcontextprotocol.io) |
 | `.claude-plugin/plugin.json`, `.mcp.json` | Claude Code plugin that connects to the hosted server with your API key |
 | `.claude-plugin/marketplace.json` | Lets Claude Code install the plugin from this repository |
-| `.cursor-plugin/plugin.json`, `mcp.json` | Cursor plugin manifest. Cursor plugins can't ask each user for an API key yet, so connect Cursor with the configuration above |
+| `.cursor-plugin/plugin.json`, `mcp.json` | Cursor plugin that connects to the hosted server with the `AYEWATCH_API_KEY` you set in Cursor |
+| `glama.json` | Claims the [Glama](https://glama.ai/mcp/servers) listing for this repository |
+| `SUBMISSIONS.md` | Where AyeWatch is listed and how to submit it to each directory |
 | `assets/` | Icon and logo |
 
 Nothing in this repository runs code on your machine. The plugin files only tell your client to connect to `https://ayewatch.ai/api/mcp` and send your API key to it in the `Authorization` header. AyeWatch receives the tool calls your assistant makes, such as a monitor's topic, URLs, and schedule, and nothing else from your machine.

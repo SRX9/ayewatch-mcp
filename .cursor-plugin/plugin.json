@@ -11,5 +11,17 @@
   "repository": "https://github.com/SRX9/ayewatch-mcp",
   "license": "MIT",
   "keywords": ["monitoring", "alerts", "web page changes", "news", "research"],
-  "logo": "assets/logo.png"
+  "logo": "assets/logo.png",
+  "mcpServers": "./mcp.json",
+  "variables": {
+    "type": "object",
+    "required": ["AYEWATCH_API_KEY"],
+    "properties": {
+      "AYEWATCH_API_KEY": {
+        "type": "string",
+        "title": "AyeWatch API key",
+        "description": "Create one in AyeWatch under Settings > API access (https://ayewatch.ai/settings/api). It starts with aw_live_."
+      }
+    }
+  }
 }

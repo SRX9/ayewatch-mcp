@@ -1,7 +1,8 @@
 {
   "mcpServers": {
     "ayewatch": {
-      "url": "https://ayewatch.ai/api/mcp"
+      "url": "https://ayewatch.ai/api/mcp",
+      "headers": { "Authorization": "Bearer ${AYEWATCH_API_KEY}" }
     }
   }
 }
