@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "ai.ayewatch/ayewatch",
+  "name": "io.github.SRX9/ayewatch",
   "title": "AyeWatch",
   "description": "Manage AyeWatch monitors for topics and web pages, and the webhook that receives their alerts.",
   "version": "1.0.0",
@@ -16,8 +16,8 @@
       "headers": [
         {
           "name": "Authorization",
-          "description": "AyeWatch API key as \"Bearer aw_live_...\". Required for the webhook tools. Leave empty to sign in with OAuth.",
-          "isRequired": false,
+          "description": "AyeWatch API key as \"Bearer aw_live_...\". Create one at https://ayewatch.ai/settings/api.",
+          "isRequired": true,
           "isSecret": true
         }
       ]
